@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+//http://localhost:8080/contatos/index.html
 public class Mensagens 
 {
 	public String mensagemLoginInvalido() 
@@ -36,13 +36,22 @@ public class Mensagens
 	public String mostraContatos( String nomeLogin ) throws IOException
 	{
 		StringBuilder sb = new StringBuilder();
-		FileInputStream entrada = new FileInputStream("/home/daniloarantes/git/TrabalhoContatos/contatos/src/contatos.txt");
+		//FileInputStream entrada = new FileInputStream("/home/daniloarantes/git/TrabalhoContatos/contatos/src/contatos.txt");
+		
+		FileInputStream entrada = new FileInputStream("C:/Users/Eduardo/eclipse-workspace/TrabalhoContatos/contatos/src/contatos.txt");
+		
+		
 		InputStreamReader entradaFormatada = new InputStreamReader(entrada);
 		BufferedReader entradaString = new BufferedReader(entradaFormatada);
 		
 		sb.append("<html lang=\"pt-br\">");
 		sb.append("<head>");
 		sb.append("<meta charset=\"Windows-1252\">");
+		
+		sb.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css' integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M' crossorigin='anonymous1'");
+
+		
+		
 		sb.append("<link rel='stylesheet' href='resources/bootstrap-3.3.5-dist/css/bootstrap.min.css'>");
 		sb.append("<link rel='stylesheet' href='resources/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css'>");
 		sb.append("<link rel='stylesheet' href='resources/style.css'>");
@@ -67,20 +76,42 @@ public class Mensagens
 		        primeiro = linha.indexOf("=") + 1;//+1 para pegar o caracter apos =
 		        ultimo = linha.lastIndexOf("");
 				contatos = linha.split(";");
+				/*
 				sb.append("<div class=\"checkbox\">"
 						+ "<ul><li>Nome: "+contatos[1]+
 							"<ul><li>Telefone: "+contatos[2]
 							+"<label><input type=\"checkbox\" name=\"contato\" value=\""
 								+linha.substring(primeiro, ultimo)+"\"></label>"+
 							"</div></li></li></ul></ul><br>");
+				*/
+				
+				sb.append("<table class='table table-striped'>");
+						
+																
+						sb.append("<tbody>");
+													
+									sb.append("<tr>");
+											
+								     sb.append(""
+										  + "<td>"+contatos[1]+"</td>"
+										  + "<td>"+contatos[2]+"</td>"
+										  + "<td><input type=\"checkbox\" name=\"contato\" value=\""+linha.substring(primeiro, ultimo)+"\"></td>"
+										);
+									
+								
+							         sb.append("</tr>");
+				    
+				    
+					sb.append("</tbody>");
+				sb.append("</table>");
 			}
 			linha = entradaString.readLine();
 		}
 		entrada.close();
-		sb.append("<button type=\"submit\" class=\"btn btn-link\">Excluir contatos marcados</button>");
+		sb.append("<button type=\"submit\" class=\"btn btn-danger\">Excluir contatos marcados</button>");
 		sb.append("</form>");		
-		sb.append("<a href='index.html'><button type='button' class='btn btn-link'>Trocar de usuário</button></a>");
-		sb.append("<a href='addContato.html'><button type='button' class='btn btn-link'>"
+		sb.append("<a href='index.html'><button type='button' class='btn btn-primary'>Trocar de usuario</button></a>");
+		sb.append("<a href='addContato.html'><button type='button' class='btn btn-success'>"
 				+ "Cadastrar contato</button></a>");
 		sb.append("</body>");
 		sb.append("</html>");

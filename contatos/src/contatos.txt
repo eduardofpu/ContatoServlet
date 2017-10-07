@@ -4,3 +4,6 @@ joao;Cecilia;8843-0000;id=3
 d4n1l0;Guilherme;1234;id=4
 d4n1l0;José;44332211;id=5
 guilherme;maria;12345678;id=7
+
+
+dudu;Eduardo;(34)3222-5010;id=9

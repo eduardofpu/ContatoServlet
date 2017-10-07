@@ -27,7 +27,10 @@ public class LoginServlet extends HttpServlet
 		{
 			writer.write(mem.mensagemLoginInvalido());			
 		}else{		
-			FileInputStream entrada = new FileInputStream("/home/daniloarantes/git/TrabalhoContatos/contatos/src/users.txt");
+			//FileInputStream entrada = new FileInputStream("/home/daniloarantes/git/TrabalhoContatos/contatos/src/users.txt");
+			FileInputStream entrada = new FileInputStream("C:/Users/Eduardo/eclipse-workspace/TrabalhoContatos/contatos/src/users.txt");
+			
+			
 			InputStreamReader entradaFormatada = new InputStreamReader(entrada);
 			BufferedReader entradaString = new BufferedReader(entradaFormatada);
 		    

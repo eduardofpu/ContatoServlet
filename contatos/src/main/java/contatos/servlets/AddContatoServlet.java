@@ -41,7 +41,11 @@ public class AddContatoServlet extends HttpServlet
 	private int contaLinhas() throws IOException
 	{	
 		int cont = 1;
-		FileInputStream entrada = new FileInputStream("/home/daniloarantes/git/TrabalhoContatos/contatos/src/contatos.txt");
+		//FileInputStream entrada = new FileInputStream("/home/daniloarantes/git/TrabalhoContatos/contatos/src/contatos.txt");
+		
+		
+		FileInputStream entrada = new FileInputStream("C:/Users/Eduardo/eclipse-workspace/TrabalhoContatos/contatos/src/contatos.txt");
+		
 		InputStreamReader entradaFormatada = new InputStreamReader(entrada);
 		BufferedReader entradaString = new BufferedReader(entradaFormatada);
 		String linha = entradaString.readLine();
@@ -57,7 +61,10 @@ public class AddContatoServlet extends HttpServlet
 	
 	private void salvaContato( String nomeUser, String nomeContato, String numContato ) throws IOException
 	{
-		Path path = Paths.get( "/home/daniloarantes/git/TrabalhoContatos/contatos/src/contatos.txt" );
+		//Path path = Paths.get( "/home/daniloarantes/git/TrabalhoContatos/contatos/src/contatos.txt" );
+		Path path = Paths.get("C:/Users/Eduardo/eclipse-workspace/TrabalhoContatos/contatos/src/contatos.txt");
+		
+		
 		String conteudo = nomeUser+";"+nomeContato+";"+numContato+";id="+contaLinhas()+"\n";
 		Files.write( path, conteudo.getBytes(), StandardOpenOption.APPEND );
 	}

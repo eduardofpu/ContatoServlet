@@ -39,7 +39,11 @@ public class DelContatoServlet extends HttpServlet
 	
 	private void excluirContatos( String[] id ) throws IOException
 	{
-		File entrada = new File("/home/daniloarantes/git/TrabalhoContatos/contatos/src/contatos.txt");//pego o caminho do txt
+		//File entrada = new File("/home/daniloarantes/git/TrabalhoContatos/contatos/src/contatos.txt");//pego o caminho do txt
+		File entrada = new File("C:/Users/Eduardo/eclipse-workspace/TrabalhoContatos/contatos/src/contatos.txt");//pego o caminho do txt
+		
+		
+		
 		FileReader entradaFormatada = new FileReader(entrada);//leio o txt
 		BufferedReader entradaString = new BufferedReader(entradaFormatada);//entro no txt
 		

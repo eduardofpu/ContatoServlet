@@ -35,7 +35,9 @@ public class AddUsuarioServlet extends HttpServlet
 	
 	private void salvaUsuario( String login, String senha ) throws IOException
 	{
-		Path path = Paths.get( "/home/daniloarantes/git/TrabalhoContatos/contatos/src/users.txt" );
+		//Path path = Paths.get( "/home/daniloarantes/git/TrabalhoContatos/contatos/src/users.txt" );
+		Path path = Paths.get("C:/Users/Eduardo/eclipse-workspace/TrabalhoContatos/contatos/src/users.txt");
+		
 		String conteudo = login+";"+senha+"\n";
 		Files.write( path, conteudo.getBytes(), StandardOpenOption.APPEND );
 	}
